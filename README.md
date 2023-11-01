@@ -1,2 +1,2 @@
 # spa-gifts-galore-proj
-This is a sample E-commerce online shop project for a fictitious company: Spa Gifts Galore
+This is a sample E-commerce project for a fictitious online shop: Spa Gifts Galore
