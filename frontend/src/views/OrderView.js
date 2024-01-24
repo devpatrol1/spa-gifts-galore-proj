@@ -9,6 +9,7 @@ import {getOrderDetails, payOrder, deliverOrder} from '../actions/orderActions'
 import {ORDER_PAY_RESET, ORDER_DELIVER_RESET} from '../constants/orderConstants'
 
 
+
 function OrderView() {
     const {id} = useParams()
     const dispatch = useDispatch()
@@ -35,7 +36,7 @@ function OrderView() {
     const addPayPalScript = () => {
         const script = document.createElement('script')
         script.type = 'text/javascript'
-        script.src = 'https://www.paypal.com/sdk/js?client-id=AfsZH67Wjw65pj7RxY_B5LEg1_bZYdIgX0ZRa4IJYq7_mJMvSkWRUkl6U0iBzOxQqnjSbkQVFn8kC7ml&currency=USD'
+        script.src = process.env.REACT_APP_PAYPAL_URL
         script.async = true
         script.onload = () => {
             setSdkReady(true)

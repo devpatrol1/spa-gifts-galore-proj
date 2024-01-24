@@ -44,6 +44,7 @@ button.btn.btn-custom2 {
   text-align: center !important;
   font-size: .75rem !important;
   border-radius: 10px !important;
+  border: .5px solid #000 !important;
 }
 
 button.btn.btn-custom2:hover {
@@ -72,6 +73,7 @@ a.link-btn:hover {
   font-size: 12px;
   cursor: pointer;
   border-radius: 10px !important;
+  border: .25px solid #000 !important;
 }
 
 a.btn-page-nav:hover {
