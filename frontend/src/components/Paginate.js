@@ -1,8 +1,6 @@
 import React from 'react'
 import { Pagination, PageItem } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
-// import {Link} from "react-router-dom"
-
 
 
 function Paginate({ pages, page, keyword = '', category = '', isAdmin = false, itemsType = '', productType = '' }) {

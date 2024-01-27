@@ -56,7 +56,7 @@ function ShippingView() {
                     </Form.Control>
                 </Form.Group>
 
-                <Button type='submit' variant='custom'>Continue</Button>
+                <Button type='submit' variant='custom' className='mt-2'>Continue</Button>
 
             </Form>
         </FormContainer>

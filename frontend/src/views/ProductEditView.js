@@ -65,7 +65,6 @@ function ProductEditView() {
     }
 
     const uploadFileHandler = async (e) => {
-        console.log(e.target.files) //TESTING
         const file = e.target.files[0]
         const formData = new FormData()
         formData.append('image', file)

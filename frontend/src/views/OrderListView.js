@@ -61,14 +61,14 @@ function OrderListView() {
 
                                 <td>{order.is_paid ? (
                                     order.paid_at.substring(0, 10)
-                                ) : (
+                                    ) : (
                                         <i className='fas fa-times' style={{ color: 'red' }}></i>
                                     )}
                                 </td>
 
                                 <td>{order.is_delivered ? (
                                     order.delivered_at.substring(0, 10)
-                                ) : (
+                                    ) : (
                                         <i className='fas fa-times' style={{ color: 'red' }}></i>
                                     )}
                                 </td>

@@ -1,9 +1,7 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {Form, Button, Col} from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux'
-// import Loader from '../components/Loader'
-// import Message from '../components/Message'
 import FormContainer from '../components/FormContainer'
 import CheckoutSteps from '../components/CheckoutSteps'
 import {savePaymentMethod} from '../actions/cartActions'
@@ -36,13 +34,11 @@ function PaymentView() {
                 <Form.Group>
                     <Form.Label as='legend'>Select Method</Form.Label>
                     <Col>
-                        <Form.Check type='radio' label='PayPal or Credit Card' id='paypal' name='paymentmethod' checked onChange={(e) => setPaymentMethod(e.target.value)}>
-
-                        </Form.Check>
+                        <Form.Check type='radio' label='PayPal or Credit Card' id='paypal' name='paymentmethod' checked onChange={(e) => setPaymentMethod(e.target.value)} />
                     </Col>
                 </Form.Group>
 
-                <Button type='submit' variant='custom'>Continue</Button>
+                <Button type='submit' variant='custom' className='mt-2'>Continue</Button>
 
             </Form>
         </FormContainer>

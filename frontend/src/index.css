@@ -81,7 +81,7 @@ a.btn-page-nav:hover {
 }
 
 .logo-img {
-  width: 27vh !important;
+  width: 24vh !important;
 }
 
 
@@ -125,6 +125,14 @@ a.btn-prod-details:hover {
   color: #fff !important;
 }
 
+.sale-price-text {
+  color: red !important;
+  
+}
+
+.reg-price-text {
+  text-decoration: line-through !important;
+}
 
 
 /* Pagination Styling */

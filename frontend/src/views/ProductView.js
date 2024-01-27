@@ -74,9 +74,10 @@ function ProductView() {
                         <Ratings value={product.rating} text={`${product.num_reviews} reviews`} color={'#f8e825'} />
                      </ListGroup.Item>
 
-                     <ListGroup.Item>
-                        Price: ${product.price}
-                     </ListGroup.Item>
+                     {product.price === product.sale_price ? 
+                        <ListGroup.Item>Price: ${product.price}</ListGroup.Item> :
+                        <ListGroup.Item>Price: <span className='sale-price-text'>${product.sale_price}</span></ListGroup.Item> 
+                     }
 
                      <ListGroup.Item>
                         Description: {product.description}
@@ -90,9 +91,13 @@ function ProductView() {
                         <ListGroup.Item>
                            <Row>
                               <Col>Price:</Col>
-                              <Col>
-                                 <strong>${product.price}</strong>
-                              </Col>
+                              {product.price === product.sale_price ? 
+                                 <Col><strong>${product.price}</strong></Col> : 
+                                 <Col>
+                                    <strong className='reg-price-text'>${product.price}</strong>
+		                              <strong className='sale-price-text'> ${product.sale_price}<p className='h6'>ON SALE!</p></strong>
+                                 </Col>
+                              }
                            </Row>
                         </ListGroup.Item>
 

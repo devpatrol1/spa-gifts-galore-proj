@@ -23,9 +23,7 @@ function Product({product}) {
             </Card.Text>
             <Card.Text>
                 <Row>
-                    <Col as='h3'>
-                        ${product.price}
-                    </Col>
+                    {product.price === product.sale_price ? <Col as='h3'>${product.price}</Col> : <Col className='h3 sale-price-text'>${product.sale_price}<p className='h6'>ON SALE!</p></Col>}
                     <Col as='div' className = 'text-center'>
                         <Link to={`/product/${product._id}`} className='btn-prod-details'><i className='fas fa-info-circle'></i> More Info</Link>
                     </Col>

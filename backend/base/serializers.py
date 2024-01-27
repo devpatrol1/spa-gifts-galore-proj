@@ -1,7 +1,8 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
+from decimal import Decimal
 from rest_framework_simplejwt.tokens import RefreshToken
-from .models import Product, Order, OrderItem, ShippingAddress, Review
+from .models import Product, Order, OrderItem, ShippingAddress, Review, DiscountStatusCode
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -42,8 +43,15 @@ class ReviewSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class DiscountStatusCodeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DiscountStatusCode
+        fields = '__all__'
+
+
 class ProductSerializer(serializers.ModelSerializer):
     reviews = serializers.SerializerMethodField(read_only=True)
+    sale_price = serializers.SerializerMethodField(read_only=True)
     class Meta:
         model = Product
         fields = '__all__'
@@ -52,6 +60,16 @@ class ProductSerializer(serializers.ModelSerializer):
         reviews = obj.review_set.all()
         serializer = ReviewSerializer(reviews, many=True)
         return serializer.data
+    
+    def get_sale_price(self, obj):
+        price = Decimal(obj.price)
+        if price != 0:
+            code = obj.discount_status_code
+            sale_price = "{:.2f}".format(price - (price * code.discount_amount))
+        else:
+            sale_price = 0.00
+        return sale_price
+
 
 
 class ShippingAddressSerializer(serializers.ModelSerializer):

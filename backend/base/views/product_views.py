@@ -1,10 +1,9 @@
-from django.shortcuts import render
-from django.db.models import F
+from django.db.models import F, Q
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 from base.paginator import getPaginatedItems
-from base.models import Product, Review, OrderItem
+from base.models import Product, Review, OrderItem, DiscountStatusCode
 from base.serializers import ProductSerializer
 from rest_framework import status
 import urllib.parse
@@ -60,7 +59,8 @@ def createProduct(request):
         brand='Sample Brand',
         count_in_stock=0,
         category='Sample Category',
-        description=''
+        description='',
+        discount_status_code=DiscountStatusCode(pk=1)
     )
     serializer = ProductSerializer(product, many=False)
     return Response(serializer.data)
