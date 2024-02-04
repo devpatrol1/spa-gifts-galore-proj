@@ -19,12 +19,18 @@ if os.path.isfile(dotenv_file):
     load_dotenv(dotenv_file)
 
 
-# Quick-start development settings - unsuitable for production
+# Quick-start development settings
 SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG')
-CORS_ALLOW_ALL_ORIGINS = True
 
-ALLOWED_HOSTS = ['*']
+
+# CORS_ALLOW_ALL_ORIGINS = True
+# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(' ')
+CSRF_TRUSTED_ORIGINS = os.environ.get('CSRF_TRUSTED_ORIGINS').split(' ')
+SECURE_SSL_REDIRECT = os.environ.get('SECURE_SSL_REDIRECT', '0').lower() in ['true', 't', '1']
+if SECURE_SSL_REDIRECT:
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
 # Application definitions
