@@ -66,4 +66,4 @@ jobs:
         with:
           app-name: 'spa-gifts-galore-app'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C629D7802896407E9BAEE9416AB35F87 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5E0FFC5C93354819AFE1BBF7CF37A89A }}
