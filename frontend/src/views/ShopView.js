@@ -33,7 +33,7 @@ function ShopView() {
 			<Container className='shop-banner-bkgrnd my-3' style={{backgroundImage: `url("../static/images/bkgrnd1.png")`, backgroundSize: 'cover'}}>
 				<Row as='div' className='align-items-center py-3'>
 					<Col as='div' xs={12} sm={12} md={4} lg={3} className='text-center'>
-						{ (!value && !category) || (!value && category.includes(substr)) ? <Image fluid className='shop-img' src={'/images/gift-shop-img.png'} /> : 
+						{ (!value && !category) || (!value && category.includes(substr)) ? <Image fluid className='shop-img' src={'/static/images/gift-shop-img.png'} /> : 
 							category && !category.includes(substr) ? <CategoryImg value={decodeURI(category.split('?category=')[1].split('&')[0])}/> : <CategoryImg value={value}/> }
 					</Col>
 					<Col as='div' className='text-center my-2 mb-0' xs={12} sm={12} md={8} lg={9}>
